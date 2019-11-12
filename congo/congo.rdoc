@@ -1,0 +1,5 @@
+= congo
+
+Generate this with
+    congo _doc
+After you have described your command line interface
