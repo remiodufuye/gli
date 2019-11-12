@@ -6,6 +6,11 @@ require 'rdoc/task'
 require 'cucumber'
 require 'cucumber/rake/task'
 
+############# ADDED ###################
+require_relative 'config/environment'
+require 'sinatra/activerecord/rake'
+######################################
+
 include Rake::DSL
 
 CLEAN << "log"
@@ -123,4 +128,19 @@ desc 'Publish rdoc on github pages and push to github'
 task :publish_rdoc => [:rdoc,:publish]
 
 task :default => [:test,:features]
+
+
+################### ADDEDD #################
+
+desc 'starts a console'
+task :console do
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  Pry.start
+end
+
+
+############################################
+
+
+
 
